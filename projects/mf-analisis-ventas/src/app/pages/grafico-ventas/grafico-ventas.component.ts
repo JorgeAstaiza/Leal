@@ -76,7 +76,6 @@ export class GraficoVentasComponent implements OnInit, AfterViewInit {
       return this.categorias?.value?.includes(d.nombre);
     });
     this.graficaVentasPorCategoria();
-    console.log(this.categoriasSeleccionadas);
   }
 
   // grafica que muestra el valor de las ventas por categoria
@@ -227,7 +226,6 @@ export class GraficoVentasComponent implements OnInit, AfterViewInit {
   // grafica que muestra el total de compras por cliente
   private graficaTotalComprasPorCliente(): void {
     this.commonsLibService.totalComprasPorCliente.subscribe((data) => {
-      console.log('compras cliente', data);
       const option = {
         xAxis: {
           max: 'dataMax',

@@ -25,14 +25,7 @@ import { CommonsLibService } from '@commons-lib';
 })
 export class AppComponent implements OnInit {
   title = 'shell';
-  constructor(
-    public commonsLibService: CommonsLibService,
-    private activeRouter: ActivatedRoute
-  ) {}
+  constructor(public commonsLibService: CommonsLibService) {}
 
-  ngOnInit(): void {
-    const ruta = this.activeRouter.url.subscribe((url) => {
-      console.log('url', url);
-    });
-  }
+  ngOnInit(): void {}
 }

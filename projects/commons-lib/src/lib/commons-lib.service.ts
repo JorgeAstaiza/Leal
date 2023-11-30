@@ -17,6 +17,15 @@ export class CommonsLibService {
   );
   ventasPorPeriodo$ = new BehaviorSubject<MockDatosVentas[]>(mockDatosVentas);
 
+  constructor() {
+    if (localStorage.getItem('clientes')) {
+      const storedClientes = localStorage.getItem('clientes');
+      if (storedClientes !== null) {
+        this.clientes$.next(JSON.parse(storedClientes));
+      }
+    }
+  }
+
   get clientes() {
     return this.clientes$.asObservable();
   }
@@ -39,13 +48,13 @@ export class CommonsLibService {
       return c.id === cliente.id;
     });
     this.clientes$.getValue()[indexClienteGuardar] = cliente;
+    localStorage.setItem('clientes', JSON.stringify(this.clientes$.getValue()));
   }
 
   // nuevo cliente
   nuevoCliente(cliente: Cliente) {
-    console.log(cliente);
-
     this.clientes$.next([...this.clientes$.getValue(), cliente]);
+    localStorage.setItem('clientes', JSON.stringify(this.clientes$.getValue()));
   }
 
   // eliminar cliente
@@ -53,5 +62,6 @@ export class CommonsLibService {
     this.clientes$.next(
       this.clientes$.getValue().filter((c) => c.id !== cliente.id)
     );
+    localStorage.setItem('clientes', JSON.stringify(this.clientes$.getValue()));
   }
 }

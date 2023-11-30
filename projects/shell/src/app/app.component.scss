@@ -1,0 +1,35 @@
+.dashboard-container {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   border: 1px solid red;
+}
+.container-nav {
+   display: flex;
+   height: 100%;
+   align-items: center;
+}
+
+nav {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   gap: 5px;
+   background-color: rgb(74, 210, 222);
+   border-radius: 1.5rem;
+   height: 75%;
+   width: 4rem;
+}
+
+button {
+   margin-top: 10px;
+}
+
+
+mat-icon {
+   font-size: 1.7rem;
+}
+

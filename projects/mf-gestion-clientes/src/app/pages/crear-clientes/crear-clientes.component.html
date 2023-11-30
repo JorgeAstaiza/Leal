@@ -1,0 +1,68 @@
+<form [formGroup]="form" class="form-container" (submit)="crearCliente()">
+  <div class="rows">
+    <h1 class="form-title">Nuevo Cliente</h1>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="nombre" matInput placeholder="Placeholder" />
+        @if (form.hasError('required', 'nombre')) {
+        <mat-error>Nombre es <strong>requerido</strong></mat-error>
+        } @if (form.hasError('minlength', 'nombre')) {
+        <mat-error
+          >Nombre debe tener al menos <strong>3 caracteres</strong></mat-error
+        >
+        }
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Celular</mat-label>
+        <input formControlName="celular" matInput placeholder="Placeholder" />
+        @if (form.hasError('required', 'celular')) {
+        <mat-error>Celular es <strong>requerido</strong></mat-error>
+        } @if (form.hasError('pattern', 'celular')) {
+
+        <mat-error>El numero de celular deben ser solo numeros</mat-error>
+        } @if (form.hasError('maxlength', 'celular')) {
+
+        <mat-error
+          >El numero de celular deben tener maximo 10 caracteres</mat-error
+        >
+        }
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Placeholder" />
+        @if (form.hasError('required', 'email')) {
+        <mat-error>Email es <strong>requerido</strong></mat-error>
+        } @if (form.hasError('pattern', 'email')) {
+
+        <mat-error>Correo electronico <strong>Invalido</strong> </mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Direccion</mat-label>
+        <input formControlName="direccion" matInput placeholder="Placeholder" />
+        @if (form.hasError('required', 'direccion')) {
+        <mat-error>La Direccion es <strong>requerida</strong></mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Total productos comprados</mat-label>
+      <input
+        formControlName="total_productos_comprados"
+        matInput
+        placeholder="Placeholder"
+      />
+      @if (form.hasError('required', 'total_productos_comprados')) {
+      <mat-error>Productos comprados es <strong>requerido</strong></mat-error>
+      } @if (form.hasError('pattern', 'total_productos_comprados')) {
+
+      <mat-error>El total debe ser <strong>numero positivo</strong> </mat-error>
+      }
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+  </div>
+</form>

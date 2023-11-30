@@ -1,0 +1,23 @@
+.bienvenido-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+}
+
+.bienvenido-container h1 {
+   font-size: 2cap;
+   font-weight: 500;
+}
+
+.bienvenido-container a {
+   font-size: 1rem;
+   font-weight: 500;
+   color: rgb(74, 210, 222);
+}
+
+.bienvenido-container strong {
+   margin-top: 10px;
+}

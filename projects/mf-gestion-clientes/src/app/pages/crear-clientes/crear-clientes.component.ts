@@ -55,7 +55,10 @@ export class CrearClientesComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.mClientes = this.commonsLibService.clientes$.getValue();
+    this.commonsLibService.clientes$.subscribe((clientes) => {
+      this.mClientes = clientes;
+    });
+    //  this.mClientes = this.commonsLibService.clientes$.getValue();
     this.idCliente = this.activeRouter.snapshot.paramMap.get('id');
     if (this.idCliente !== null) {
       const cliente = this.mClientes.find(
@@ -100,7 +103,7 @@ export class CrearClientesComponent implements OnInit {
 
       this.commonsLibService.actualizarCliente(objCliente);
       this.snackBarRef.open('Cliente actualizado con éxito', 'Cerrar', {
-        duration: this.durationInSeconds * 2000,
+        duration: 5000,
       });
     } else {
       // crear cliente
@@ -109,8 +112,9 @@ export class CrearClientesComponent implements OnInit {
         id: this.mClientes.length + 1,
       };
       this.commonsLibService.nuevoCliente(objCliente);
+
       this.snackBarRef.open('Cliente creado con éxito', 'Cerrar', {
-        duration: this.durationInSeconds * 2000,
+        duration: 5000,
       });
     }
     this.router.navigate(['/clientes']);

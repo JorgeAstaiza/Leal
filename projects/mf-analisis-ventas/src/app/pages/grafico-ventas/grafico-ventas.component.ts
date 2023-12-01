@@ -48,7 +48,7 @@ export class GraficoVentasComponent implements OnInit, AfterViewInit {
   private categoriasSeleccionadas: MockCategoria[] = [];
   // lista de categorias para filtrar
   public listaCategorias: string[] = [];
-  categorias = new FormControl('');
+  categorias = new FormControl<string[]>([]);
 
   ngAfterViewInit() {
     this.myChartCategoria = echarts.init(this.chartElement.nativeElement);
@@ -60,7 +60,6 @@ export class GraficoVentasComponent implements OnInit, AfterViewInit {
     );
 
     this.graficaVentasPorCategoria();
-
     this.graficoVentasGananciasPorMes();
     this.graficaTotalComprasPorCliente();
   }
@@ -81,10 +80,6 @@ export class GraficoVentasComponent implements OnInit, AfterViewInit {
   // grafica que muestra el valor de las ventas por categoria
   private graficaVentasPorCategoria(): void {
     this.commonsLibService.ventasPorCategoria.subscribe((data) => {
-      const gananciasFiltradas = data
-        .filter((d: MockCategoria) => this.listaCategorias.includes(d.nombre))
-        .map((d: MockCategoria) => d.gananciasPorVentas);
-
       const option: EChartsOption = {
         title: {
           text: 'Ventas por categoría',

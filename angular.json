@@ -103,7 +103,9 @@
 						"styles": [
 							"projects/shell/src/styles.scss"
 						],
-						"scripts": []
+						"scripts": [],
+					"codeCoverage": true,
+					"karmaConfig": "projects/shell/karma.conf.js"
 					}
 				}
 			}
@@ -208,7 +210,9 @@
 						"styles": [
 							"projects/mf-analisis-ventas/src/styles.scss"
 						],
-						"scripts": []
+            "scripts": [],
+				"codeCoverage": true,
+            "karmaConfig": "projects/mf-analisis-ventas/karma.conf.js"
 					}
 				}
 			}
@@ -313,7 +317,9 @@
 						"styles": [
 							"projects/mf-gestion-clientes/src/styles.scss"
 						],
-						"scripts": []
+            "scripts": [],
+				"codeCoverage": true,
+            "karmaConfig": "projects/mf-gestion-clientes/karma.conf.js"
 					}
 				}
 			}

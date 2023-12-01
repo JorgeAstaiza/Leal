@@ -24,7 +24,6 @@ import { CommonsLibService } from '@commons-lib';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'shell';
   constructor(public commonsLibService: CommonsLibService) {}
 
   ngOnInit(): void {}

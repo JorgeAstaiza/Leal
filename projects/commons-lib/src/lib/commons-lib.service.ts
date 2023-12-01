@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { mockClientes } from './mocks/clientes.mock';
 import { mockCategoriasProductos } from './mocks/categoria.mock';
 import { mockDatosVentas } from './mocks/ventas.mock';
@@ -11,7 +11,9 @@ import { MockDatosVentas } from './interfaces/ventas.interface';
   providedIn: 'root',
 })
 export class CommonsLibService {
-  clientes$ = new BehaviorSubject<Cliente[]>(mockClientes);
+  clientes$: BehaviorSubject<Cliente[]> = new BehaviorSubject<Cliente[]>(
+    mockClientes
+  );
   ventasPorCategoria$ = new BehaviorSubject<MockCategoria[]>(
     mockCategoriasProductos
   );
@@ -26,7 +28,7 @@ export class CommonsLibService {
     }
   }
 
-  get clientes() {
+  get clientes(): Observable<Cliente[]> {
     return this.clientes$.asObservable();
   }
 

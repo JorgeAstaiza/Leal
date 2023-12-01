@@ -92,7 +92,6 @@ describe('CrearClientesComponent', () => {
   });
 
   it('Debe crear un cliente', () => {
-    // Mock el formulario válido
     component.form.patchValue({
       nombre: 'John Doe',
       celular: '1234567890',
@@ -101,27 +100,12 @@ describe('CrearClientesComponent', () => {
       total_productos_comprados: 5,
     });
 
-    // Llama al método crearCliente
     component.crearCliente();
 
     fixture.detectChanges();
-    // Verifica que el servicio correspondiente haya sido llamado
     expect(commonsLibServiceSpy.nuevoCliente).toHaveBeenCalled();
 
     expect(component.form.invalid).toBeFalse();
-
-    // TODO: mostrar el snackbar
-    // Verifica que el Snackbar haya sido llamado con el mensaje correcto
-    // expect(snackBarSpy.open).toHaveBeenCalledWith(
-    //   'Cliente creado con éxito',
-    //   'Cerrar',
-    //   { duration: 5000 }
-    // );
-
-    // Restablece el estado del componente
-    // (component as any).idCliente = null;
-    // component.form.reset();
-    // snackBarSpy.open.calls.reset();
   });
 
   it('Debe actualizar un cliente', () => {
@@ -132,25 +116,13 @@ describe('CrearClientesComponent', () => {
       direccion: 'Some Address',
       total_productos_comprados: 5,
     });
-    // Mock un id de cliente para simular una actualización
+
     (component as any).idCliente = '1';
 
-    // Llama al método crearCliente nuevamente
     component.crearCliente();
 
-    // Verifica que el servicio correspondiente haya sido llamado para actualizar
     expect(commonsLibServiceSpy.actualizarCliente).toHaveBeenCalled();
 
     expect(component.form.invalid).toBeFalse();
-
-    // spyOn(component['router'], 'navigate');
-    // TODO: mostrar el snackbar
-    // Verifica que el Snackbar haya sido llamado con el mensaje correcto
-    // expect(snackBarSpy.open).toHaveBeenCalledWith(
-    //   'Cliente actualizado con éxito',
-    //   'Cerrar',
-    //   { duration: 5000 }
-    // );
-    // expect(component['router'].navigate).toHaveBeenCalledWith(['/clientes']);
   });
 });

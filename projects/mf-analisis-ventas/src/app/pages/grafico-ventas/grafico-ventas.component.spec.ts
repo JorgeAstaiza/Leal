@@ -41,9 +41,8 @@ describe('GraficoVentasComponent', () => {
     spyOn(component as any, 'graficoVentasGananciasPorMes');
     spyOn(component as any, 'graficaTotalComprasPorCliente');
 
-    // Act
     component.ngAfterViewInit();
-    // Agrega más expectativas según sea necesario
+
     expect((component as any).graficaVentasPorCategoria).toHaveBeenCalled();
     expect((component as any).graficoVentasGananciasPorMes).toHaveBeenCalled();
     expect((component as any).graficaTotalComprasPorCliente).toHaveBeenCalled();
@@ -59,10 +58,8 @@ describe('GraficoVentasComponent', () => {
     spyOn(component as any, 'graficaVentasPorCategoria');
     fixture.detectChanges();
 
-    // Act
     component.filtrarCategorias();
 
-    // Assert
     expect((component as any).categoriasSeleccionadas).toEqual([
       { nombre: 'Categoria1' },
     ]);
